@@ -29,9 +29,10 @@ class Snowfall {
 
 	public function enqueue() {
 
-		if ( is_woocommerce() ) {
+		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
 			return;
 		}
+
 		wp_enqueue_style(
 			'snowfall-style',
 			plugin_dir_url( __FILE__ ) . 'assets/snowfallstyles.css',
@@ -58,7 +59,7 @@ class Snowfall {
 
 	public function out() {
 
-		if ( is_woocommerce() ) {
+		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
 			return;
 		}
 
