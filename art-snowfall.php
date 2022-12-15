@@ -5,7 +5,7 @@
  * Text Domain:
  * Domain Path: /languages
  * Description:
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Artem Abramovich
  * Author URI: https://wpruse.ru/
  * License: GPL-2.0+
@@ -70,7 +70,7 @@ class Snowfall {
 
 	public function out() {
 
-		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+		if ( $this->has_woocommerce() ) {
 			return;
 		}
 
