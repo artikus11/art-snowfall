@@ -27,9 +27,19 @@ class Snowfall {
 	}
 
 
+	public function has_woocommerce() {
+
+		if ( class_exists( 'Woocommerce' ) ) {
+			return is_woocommerce() || is_cart() || is_checkout() || is_account_page();
+		}
+
+		return false;
+	}
+
+
 	public function enqueue() {
 
-		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+		if ( $this->has_woocommerce() ) {
 			return;
 		}
 
@@ -48,7 +58,8 @@ class Snowfall {
 			true
 		);
 
-		wp_localize_script( 'snowfall-script',
+		wp_localize_script(
+			'snowfall-script',
 			'snowfall_object',
 			[
 				'image_ulr' => plugin_dir_url( __FILE__ ) . 'assets/images/snowflake-shadow.svg',
@@ -65,16 +76,16 @@ class Snowfall {
 
 		?>
 		<script type="text/javascript">
-			  jQuery( document ).ready( function( $ ) {
-				  $( document ).snowfall( {
-					  flakeCount: 300,
-					  image: snowfall_object.image_ulr,
-					  minSize: 5,
-					  maxSize: 10,
-					  round: true,
-					  shadow: false
-				  } );
-			  } );
+			jQuery( document ).ready( function ( $ ) {
+				$( document ).snowfall( {
+					flakeCount: 300,
+					image:      snowfall_object.image_ulr,
+					minSize:    5,
+					maxSize:    10,
+					round:      true,
+					shadow:     false
+				} );
+			} );
 
 		</script>
 		<?php
