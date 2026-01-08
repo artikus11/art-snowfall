@@ -1,0 +1,23 @@
+{
+  "name": "art/snowfall",
+  "description": "",
+  "license": "GPL-2.0",
+  "keywords": [
+    "art",
+    "feedback",
+    "button"
+  ],
+  "homepage": "https://github.com/artikus11/art-snowfall",
+  "authors": [
+    {
+      "name": "Artem Abramovich",
+      "homepage": "https://wpruse.ru"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "classmap": [
+      "classes"
+    ]
+  }
+}
