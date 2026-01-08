@@ -52,18 +52,6 @@ class Enqueue {
 			return;
 		}
 
-		wp_enqueue_script(
-			$this->handles['script'],
-			sprintf( '%s/assets/js/%s%s.js', Utils::get_plugin_url(), $this->handles['script'], $this->suffix ),
-			[],
-			Utils::get_plugin_version(),
-			[
-				'in_footer'     => true,
-				'strategy'      => 'defer',
-				'fetchpriority' => 'low',
-			]
-		);
-
 		$settings = apply_filters(
 			'art_snowfall_settings',
 			[
@@ -74,6 +62,22 @@ class Enqueue {
 				'maxSize'  => 6,
 				'minSpeed' => 0.4,
 				'maxSpeed' => 1.9,
+			]
+		);
+
+		if ( empty( $settings ) ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			$this->handles['script'],
+			sprintf( '%s/assets/js/%s%s.js', Utils::get_plugin_url(), $this->handles['script'], $this->suffix ),
+			[],
+			Utils::get_plugin_version(),
+			[
+				'in_footer'     => true,
+				'strategy'      => 'defer',
+				'fetchpriority' => 'low',
 			]
 		);
 
