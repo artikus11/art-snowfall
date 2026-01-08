@@ -11,8 +11,8 @@
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
- * WC requires at least: 3.3.0
- * WC tested up to: 3.6
+ * RequiresWP: 6.4
+ * RequiresPHP: 7.4
  *
  */
 
